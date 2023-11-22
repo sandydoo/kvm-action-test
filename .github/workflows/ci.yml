@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@ce93149fd9bd2a5a819430c2925c43f4b872bfbd
+      - run: echo /etc/udev/rules.d/99-install-nix-action-kvm.rules
+      - run: ls /dev
+
